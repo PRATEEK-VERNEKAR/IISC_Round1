@@ -29,7 +29,6 @@ def predict():
         annotated_img = result.plot()
         annotated_img = Image.fromarray(annotated_img)
 
-        # Get the count of objects and their names
         tensor_values = result.boxes.cls
         arr = np.array(tensor_values)
         counts = Counter(arr)
@@ -38,7 +37,6 @@ def predict():
         for i in counts:
             objects.append({"name": classes[i], "count": counts[i]})
 
-        # Convert the annotated image to base64
         img_byte_arr = io.BytesIO()
         annotated_img.save(img_byte_arr, format="PNG")
         img_byte_arr = img_byte_arr.getvalue()
@@ -48,7 +46,6 @@ def predict():
         response_data["objects"] = objects
 
     if response_data["image"] is None:
-        # If no objects were detected, return the original image
         img_byte_arr = io.BytesIO()
         img.save(img_byte_arr, format="PNG")
         img_byte_arr = img_byte_arr.getvalue()
