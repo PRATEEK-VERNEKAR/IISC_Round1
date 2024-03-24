@@ -8,3 +8,7 @@
 
 5) cd server
 6) python app.py
+
+
+# Video Link
+https://drive.google.com/file/d/13NIn8SOvIZVagAB58sU_7ZfggFb_yrY4/view?usp=sharing
